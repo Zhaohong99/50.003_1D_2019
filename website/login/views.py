@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 
 from .forms import LoginForm
@@ -28,8 +28,8 @@ def index(request):
         elif request.method == 'GET':
             return render(request, 'login/not_logged_in.html', {'form':LoginForm()})
 
-    #return HttpResponse("Hello, world. You're at the login index.")
-        return render(request, 'login/login.html')
+        return HttpResponse("/home/")
+        #return render(request, 'login/login.html')
 
 def log_out(request):
     logout(request)

@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ticket_creation'
+    'ticket_creation',
 
 ]
 
@@ -130,3 +130,4 @@ STATIC_URL = '/static/'
 # Added to redirect user after a successful login
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'

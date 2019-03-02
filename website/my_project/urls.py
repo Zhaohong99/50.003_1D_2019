@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from createuser.views import get_user
-from ticket_creation.views import create, list
+from ticket_creation.views import create, list,delete
 from login.views import index
 from home.views import home
 
@@ -34,4 +34,6 @@ urlpatterns = [
     url(r'^createuser/', get_user,name="createuser"),
     url(r'^createticket/', create, name="createticket"),
     url(r'^display/', list, name="display"),
+    url(r'^delete/', delete, name="delete"),
+
 ]
