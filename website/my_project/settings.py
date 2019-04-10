@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -48,15 +47,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'my_project.urls'
 
@@ -66,7 +62,7 @@ TEMPLATES = [
         # 'DIRS': [os.path.join(BASE_DIR, 'home/templates'),
         #          os.path.join(BASE_DIR, 'login/templates'),
         #          os.path.join(BASE_DIR, 'createuser/templates')],
-        'DIRS': ['appfront/dist'],
+        'DIRS':[os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,11 +75,6 @@ TEMPLATES = [
         },
     },
 ]
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "appfront/dist/static"),
-]
-
 
 WSGI_APPLICATION = 'my_project.wsgi.application'
 
@@ -162,11 +153,8 @@ EMAIL_HOST_USER = "pleasedontlockthisemailthanks@gmail.com"
 EMAIL_HOST_PASSWORD = "e@5yp@55w0rd"
 SERVER_EMAIL = "pleasedontlockthisemailthanks@gmail.com"
 
-
-# # Testing Email backend?????
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST = 'localhost'
-# EMAIL_PORT = 1025
-#
-# SERVER_EMAIL = 'root@localhost'
-
+HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.join(HERE, '../')
+STATICFILES_DIRS = (
+    os.path.join(HERE, 'static/'),
+)

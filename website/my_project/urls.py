@@ -22,20 +22,14 @@ from createuser.views import get_user
 from ticket_creation.views import create, list,delete
 
 
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('accounts/', include('django.contrib.auth.urls')),
-#
-#     path('home/', include('home.urls'), name='home'),
-#     path('login/', include('login.urls'), name='login'),
-#     path('createuser/', include('createuser.urls'), name='createuser'),
-#     path('ticket_creation/', include('ticket_creation.urls'), name='ticket_creation'),
-#     path('Profile/', include('Profile.urls'), name='Profile'),
-#
-# ]
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    #url(r'^$', TemplateView.as_view(template_name="index.html")),
-    url(r'^$', include('login.urls')),
-    url(r'^createuser/(?P<version>\w+)/',include("createuser.urls")),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    path('home/', include('home.urls'), name='home'),
+    path('', include('login.urls'), name='login'),
+    path('createuser/', include('createuser.urls'), name='createuser'),
+    path('ticket_creation/', include('ticket_creation.urls'), name='ticket_creation'),
+    path('Profile/', include('Profile.urls'), name='Profile'),
+
 ]

@@ -14,7 +14,7 @@ def home(request):
 	                return render(request, 'home/index_admin.html', {'error_message':error_message})
                 else:
                         # user is normal user
-	                return render(request, 'home/index_user.html', {'error_message':error_message})
+	                return render(request, 'index.html', {'error_message':error_message})
 
         else:
                 # user has not logged in, redirect to login page

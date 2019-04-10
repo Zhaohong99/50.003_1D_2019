@@ -23,7 +23,9 @@
     <orderEntry type="library" name="Chart" level="application" />
     <orderEntry type="library" name="feather" level="application" />
     <orderEntry type="library" name="jquery-3.2.1.slim" level="application" />
-    <orderEntry type="library" name="vuetify" level="application" />
+    <orderEntry type="library" name="bootstrap.bundle" level="application" />
+    <orderEntry type="library" name="popper" level="application" />
+    <orderEntry type="library" name="mdb" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

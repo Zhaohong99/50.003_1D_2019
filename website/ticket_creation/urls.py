@@ -1,5 +1,4 @@
 from django.urls import path
-from django.views.generic import TemplateView
 
 from . import views
 
@@ -10,10 +9,5 @@ urlpatterns = [
     path('delete/', views.delete, name='delete'),
     path('detail/', views.detail, name='detail'),
     path('resolve/', views.resolve, name='resolve'),
-    path('remote_create/', views.remote_create, name='remote_create'),
-
-    path("",
-        TemplateView.as_view(template_name="application.html"),
-        name="app",
-    ),
+    path('create_new/', views.create_new, name='create_new')
 ]
