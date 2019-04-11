@@ -77,8 +77,8 @@ def index(request):
 		pass
 
 	messages.error(request, error_message)
-	#return render(request, 'login.html', {'form':LoginForm(), 'error_message':error_message})
-	return render(request, 'login.html')
+	return render(request, 'login.html', {'form':LoginForm(), 'error_message':error_message})
+	#return render(request, 'login.html')
 
 def log_out(request):
 	logout(request)
