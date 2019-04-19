@@ -13,11 +13,11 @@
   <title>Login to AccentureIST</title></title>
 
   <!-- Custom fonts for this template-->
-  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -27,6 +27,7 @@
 <form method="post">
     {% csrf_token %}
 
+    <!-- Error Message Alert -->
     {% if error_message %}
     <div class="alert alert-info alert-dismissable">
       <button aria-hidden="true" data-dismiss="alert" class="close" type="button">X</button>
@@ -55,15 +56,13 @@
                     <div class="form-label-group">
                       <small class="form-text text-muted">Enter Password:</small>
                       {{form.password}}
-                      <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                      <label for="inputPassword">Password</label> -->
                     </div>
-      
-                    <!-- <div class="custom-control custom-checkbox mb-3">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1">Remember password</label>
-                    </div> -->
-                    <button class="btn btn-lg btn-info btn-block text-uppercase" type="submit" >Sign in</button>
+
+                    <button class="btn btn-lg btn-info btn-block text-uppercase" type="submit" >
+                      Login
+                      <i class="fas fa-sign-in-alt"></i>
+                      
+                    </button>
                     <hr class="my-4">
                     <p>Don't have account? <a href="{% url 'createuser:index' %}">Register Here!</a></p>
                   </form>
@@ -77,14 +76,14 @@
  
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../static/vendor/jquery/jquery.min.js"></script>
-  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../static/js/sb-admin-2.min.js"></script>
+  <script src="/static/js/sb-admin-2.min.js"></script>
 
 </body>
 

@@ -213,7 +213,7 @@ def create(request):
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
                                 send_mail('Ticket Created Successful','Your ticket '+title+' has been create successful','50003escproject@gmail.com',[request.user.email],fail_silently=False)
-                                return render(request, 'createticketform.html', )
+                                return render(request, 'createticketform.html', {'error_message':error_message} )
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
                                 print(q)
