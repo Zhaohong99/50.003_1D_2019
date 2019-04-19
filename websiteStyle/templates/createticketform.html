@@ -1,22 +1,21 @@
 {% extends 'baseuser.html' %}
 {% block content %}
 
-<!-- Sucessful Ticket Confirmation Sncackbar -->
-{% if messages %}
-	{% for message in messages %}
-    	<div class="alert alert-info alert-dismissable">
-      		<button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button>
-			{{message}}
-			<hr>
-			<p class="mb-0">Ticket details have been sent to you via your preferred contact method. Our team will attend to your ticket shortly, Thank You!</p>
-		</div>
-	{% endfor %}
-      
-{% endif %}
-
-
 
 <div class="container-fluid">
+  <!-- Sucessful Ticket Confirmation Sncackbar -->
+  {% if messages %}
+  {% for message in messages %}
+      <div class="alert alert-info alert-dismissable">
+          <button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button>
+      {{message}}
+      <hr>
+      <p class="mb-0">Ticket details have been sent to you via your preferred contact method. Our team will attend to your ticket shortly, Thank You!</p>
+    </div>
+  {% endfor %}
+      
+  {% endif %}
+
   <!-- Start of Ticket Form -->
 	<form method="post" action="" enctype="multipart/form-data"> 
 		{% csrf_token %}
