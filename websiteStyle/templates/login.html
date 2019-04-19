@@ -35,7 +35,7 @@
       
     {% endif %}
     <body>
-
+    <header class="masthead">
         <div class="container">
           <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -72,6 +72,7 @@
             </div>
           </div>
         </div>
+      </header>
       </body>
 
  
@@ -95,12 +96,21 @@
     :root {
       --input-padding-x: 1.5rem;
       --input-padding-y: .75rem;
+
     }
     
     body {
       background: #89929b;
       background: linear-gradient(to bottom,#8A2BE2,#8B008B, 	#800080);
     }
+    .masthead {
+      height: 100vh;
+      min-height: 500px;
+      background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+}
     
     .card-signin {
       border: 0;

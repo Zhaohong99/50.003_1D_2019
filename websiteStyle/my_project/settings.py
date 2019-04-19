@@ -60,8 +60,7 @@ ROOT_URLCONF = 'my_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'home/templates'),os.path.join(BASE_DIR,'templates'),
-                 os.path.join(BASE_DIR, 'createuser/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'home/templates'),os.path.join(BASE_DIR,'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': '50003',
-        'USER': 'root',
+        'USER': 'newuser',
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '3306',
@@ -142,12 +141,15 @@ AUTH_USER_MODEL = "createuser.Extended_User"
 # Email Backend
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_USE_SSL = True
+EMAIL_USE_SSL = False
+#EMAIL_USE_TLS = True
 EMAIL_USE_TLS = False
-EMAIL_PORT = 465
-EMAIL_HOST_USER = "50003escproject@gmail.com"
-EMAIL_HOST_PASSWORD = "50003ProjectESC"
-#SERVER_EMAIL = "pleasedontlockthisemailthanks@gmail.com"
+EMAIL_PORT = 25
+#EMAIL_PORT = 587
+#EMAIL_PORT = 465
+EMAIL_HOST_USER = "pleasedontlockthisemailthanks@gmail.com"
+EMAIL_HOST_PASSWORD = "e@5yp@55w0rd"
+SERVER_EMAIL = "pleasedontlockthisemailthanks@gmail.com"
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))

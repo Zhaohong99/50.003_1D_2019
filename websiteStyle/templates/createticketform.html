@@ -10,14 +10,14 @@
   <meta name="author" content="">
 
   <!-- Custom fonts for this template-->
-  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css"> -->
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
@@ -54,41 +54,39 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
+        Tools
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'ticket_creation:create' %}">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Create Tickets</span>
-        </a>
-      </li>
+       <!-- Nav Item - Pages Collapse Menu -->
+       <li class="nav-item">
+          <a class="nav-link collapsed" href="{% url 'home:index' %}">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="{% url 'ticket_creation:create' %}">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Create Tickets</span>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="{% url 'ticket_creation:selected_list' %}">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>View My Tickets</span>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="{% url 'Profile:viewProfile' %}" >
+          <i class="fas fa-user fa-sm fa-fw"></i>
+          <span>Profile</span>
+          </a>
+        </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'ticket_creation:selected_list' %}">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>View My Tickets</span>
-        </a>
-      </li>
 
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'Profile:viewProfile' %}" >
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
-          </div>
-        </div>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -325,8 +323,9 @@
                 
                 <form>
                 <hr class="my-4">
-              
-              <button class="btn btn-lg btn-info btn-block text-uppercase" type="submit" >Create Ticket</button>
+              <div class="text-right">
+              <button class="btn btn-lg btn-info text-uppercase" type="submit" >Create Ticket</button>                
+              </div>
        
             </form>
           </div>
@@ -334,23 +333,22 @@
       </div>
       
     </div>
-    
-</div>
-
+  </div>
+</body>
 
 
     
  
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../static/vendor/jquery/jquery.min.js"></script>
-  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../static/js/sb-admin-2.min.js"></script>
+  <script src="/static/js/sb-admin-2.min.js"></script>
 
 </html>
 
@@ -430,7 +428,6 @@
       margin-bottom: 0;
       /* Override default `<label>` margin */
       line-height: 1.5;
-      color: purple;
       border: 1px solid transparent;
       border-radius: .25rem;
       transition: all .1s ease-in-out;
