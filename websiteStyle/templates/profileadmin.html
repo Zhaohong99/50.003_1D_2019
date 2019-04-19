@@ -2,207 +2,163 @@
 
 
 {% block content %}
-
-        <!-- Begin Page Content --> 
+<body>
+    <header class="masthead">  
         <div class="container-fluid"> 
-            <form method="post" action="" enctype="multipart/form-data"> 
-    {% csrf_token %} 
- 
-<body class="bg-gray-100"> 
-  <form method="post"> 
-        {% if error_message %} 
-          <div class="alert alert-info alert-dismissable"> 
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">X</button> 
-            {{error_message}} 
-          </div> 
-        {% endif %} 
- 
-        <div class="container"> 
-          <div class="row"> 
-            <div class="col-sm-9 col-md-7 col-lg-7 mx-auto"> 
-              <div class="card card-signin my-4 border-left-info"> 
-                <div class="card-body"> 
-                  <h4 class="card-title text-center">Account Details</h4> 
-                    <form class="form-signin"> 
-                      <div class="form-label-group">      
-                        <input type="text" readonly id="username" class="form-control" value="{{ user_information.username }}"> 
-                        <label for="username">Username</label> 
-                      </div> 
-                           
-                      <div class="form-label-group"> 
-                                         
-                        <input class="form-control" readonly type="password" id="password" value="notforyou"> 
-                          <label for="password">Password</label> 
- 
-                                                <!-- <div class="input-group-addon"> 
-                                                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a> 
-                                                </div> --> 
-                        </div> 
-                           
-                      <div class="form-label-group"> 
-                        <input class="form-control" readonly type="email" id="email" value="{{ user_information.email }}"> 
-                        <label for="email">Email</label> 
-                      </div> 
- 
-                      <div class="form-label-group"> 
-                          <input class="form-control" readonly type="number" id="phoneNumber" value="{{ user_information.phoneNumber }}"> 
-                          <label for="phoneNumber">Contact Number</label> 
-                      </div> 
-                           
-                             
-                             
- 
-                      <div clas="form-label-group"> 
-                        <small class="form-text text-muted">Notify me: </small> 
-                      </div> 
-                           
-                      <div class="form-check form-check-inline"> 
-                        {% if user_information.notify_email %} 
-                          <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" disabled checked value="True"/> 
-                          <label class="form-check-label">via Email</label>   
-                        {% else %}   
-                          <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" disabled value="True"/> 
-                          <label class="form-check-label">via Email</label> 
- 
-                        {% endif %} 
-                                            
-                      </div> 
-                      <div class="form-check form-check-inline"> 
-                        {% if user_information.notify_sms %} 
-                          <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" disabled checked value="True"/> 
-                          <label class="form-check-label">via SMS</label> 
-                        {% else %} 
-                          <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" disabled value="True"/> 
-                          <label class="form-check-label">via SMS</label> 
-                        {% endif %} 
-                      </div> 
- 
-                    </form> 
-                           
-                      <hr class="my-4"> 
-                                 
-                             
-                      <!-- <button type="button" class="btn btn-sm btn-info text-uppercase" data-target="#exampleModalCenter">Update</button> --> 
-                      <button type="button" class="btn btn-info btn-sm text-uppercase" data-toggle="modal" data-target="#exampleModalCenter" data-backdrop="static" data-keyboard="false"> 
-                          Update Profile 
-                      </button> 
-                         
- 
-                      <!-- Modal --> 
-                      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"> 
-                        <div class="modal-dialog modal-dialog-centered " role="document"> 
-                          <div class="modal-content border-left-info my-5"> 
-                            <div class="modal-header"> 
-                              <h5 class="modal-title" id="exampleModalLongTitle">Edit Account Information</h5> 
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
-                              <span aria-hidden="true">&times;</span> 
-                              </button> 
-                            </div> 
-                            <div class="modal-body"> 
-                                <div class="dotted"> 
-                                    <form form="post"> 
-                                      {% csrf_token %} 
- 
-                                      <form class="form-signin"> 
-                                          <div class="form-label-group">      
-                                            <input type="text"  id="username" class="form-control" value="{{ user_information.username }}"> 
-                                            <label for="username">Username</label> 
-                                          </div> 
-                                               
-                                          <div class="form-label-group"> 
-                                                             
-                                            <input class="form-control" type="password" id="password" value="notforyou"> 
-                                              <label for="password">Password</label> 
-                     
-                                                                    <!-- <div class="input-group-addon"> 
-                                                                        <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a> 
-                                                                    </div> --> 
-                                            </div> 
-                                               
-                                          <div class="form-label-group"> 
-                                            <input class="form-control" type="email" id="email" value="{{ user_information.email }}"> 
-                                            <label for="email">Email</label> 
-                                          </div> 
-                     
-                                          <div class="form-label-group"> 
-                                              <input class="form-control" type="number" id="phoneNumber" value="{{ user_information.phoneNumber }}"> 
-                                              <label for="phoneNumber">Contact Number</label> 
-                                          </div> 
-                                               
-                                                 
-                                                 
-                     
-                                          <div clas="form-label-group"> 
-                                            <small class="form-text text-muted">Notify me: </small> 
-                                          </div> 
-                                               
-                                          <div class="form-check form-check-inline"> 
-                                            {% if user_information.notify_email %} 
-                                              <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" checked value="True"/> 
-                                              <label class="form-check-label">via Email</label>   
-                                            {% else %}   
-                                              <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" value="True"/> 
-                                              <label class="form-check-label">via Email</label> 
-                     
-                                            {% endif %} 
-                                                                
-                                          </div> 
-                                          <div class="form-check form-check-inline"> 
-                                            {% if user_information.notify_sms %} 
-                                              <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" checked value="True"/> 
-                                              <label class="form-check-label">via SMS</label> 
-                                            {% else %} 
-                                              <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" value="True"/> 
-                                              <label class="form-check-label">via SMS</label> 
-                                            {% endif %} 
-                                          </div> 
- 
-                                          <hr class="my-4"> 
- 
-                                          <div class="text-right"> 
-                                            <button type="submit" class="btn btn-info btn-sm ">Submit Details</button> 
-                                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button> 
-                                          </div> 
-                                     
-                               
-                                           
-                                        </form> 
-                                    </form> 
-                                  </div> 
-                          </div> 
-                        </div> 
-                      </div> 
- 
-                                      
-       
- 
-                                       
-                     
-                  </div> 
+
+                {% if error_message %} 
+                <div class="alert alert-info alert-dismissable"> 
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">X</button> 
+                    {{error_message}} 
                 </div> 
-              </div> 
-            </div> 
+                {% endif %} 
+
+    
+                <div class="container"> 
+                    <div class="row"> 
+                        <div class="col-sm-9 col-md-7 col-lg-7 mx-auto"> 
+                            <div class="card card-signin my-4 border-left-info"> 
+                                <div class="card-body"> 
+                                    <h1 class="h4 card-title text-center">Account Details</h4>
+                                <!-- View Profile Information Items -->
+                                    <div class="form-signin"> 
+                                        <div class="form-label-group">      
+                                            <input type="text" readonly id="username" class="form-control" value="{{ user_information.username }}"> 
+                                            <label for="username">Username</label> 
+                                        </div> 
+                            
+                                        <div class="form-label-group">      
+                                            <input class="form-control" readonly type="password" id="password" value="notforyou"> 
+                                            <label for="password">Password</label> 
+        
+                                            <!-- <div class="input-group-addon"> 
+                                                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a> 
+                                            </div> --> 
+                                        </div> 
+                                
+                                        <div class="form-label-group"> 
+                                            <input class="form-control" readonly type="email" id="email" value="{{ user_information.email }}"> 
+                                            <label for="email">Email</label> 
+                                        </div> 
+    
+                                        <div class="form-label-group"> 
+                                            <input class="form-control" readonly type="number" id="phoneNumber" value="{{ user_information.phoneNumber }}"> 
+                                            <label for="phoneNumber">Contact Number</label> 
+                                        </div> 
+                            
+                                
+                                        <div clas="form-label-group"> 
+                                            <small class="form-text text-muted">Notify me: </small> 
+                                        </div> 
+                            
+                                        <div class="form-check form-check-inline"> 
+                                            {% if user_information.notify_email %} 
+                                            <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" disabled checked value="True"/> 
+                                            <label class="form-check-label">via Email</label>   
+                                            {% else %}   
+                                            <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" disabled value="True"/> 
+                                            <label class="form-check-label">via Email</label> 
+                                            {% endif %} 
+                                        </div> 
+
+                                        <div class="form-check form-check-inline"> 
+                                            {% if user_information.notify_sms %} 
+                                            <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" disabled checked value="True"/> 
+                                            <label class="form-check-label">via SMS</label> 
+                                            {% else %} 
+                                            <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" disabled value="True"/> 
+                                            <label class="form-check-label">via SMS</label> 
+                                            {% endif %} 
+                                        </div> 
+                    
+                                    </div> 
+                                    <hr class="my-4"> 
+                                    
+                                    <button type="button" class="btn btn-info btn-sm text-uppercase" data-toggle="modal" data-target="#exampleModalCenter" data-backdrop="static" data-keyboard="false"> 
+                                        Update Profile 
+                                    </button> 
+                            
+    
+                                    <!-- Modal --> 
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"> 
+                                        <div class="modal-dialog modal-dialog-centered " role="document"> 
+                                            <div class="modal-content border-left-info my-5"> 
+                                                <div class="modal-header"> 
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Account Information</h5> 
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                                                        <span aria-hidden="true">&times;</span> 
+                                                    </button> 
+                                                </div> 
+
+                                            <div class="modal-body">
+                                                    <form method="post">
+                                                            {% csrf_token %}
+                                                            <div class="form-label-group">
+                                                                <small class="form-text text-muted">Username: </small>
+                                                                <input type="text" class="form-control" name="username" value={{user_information.username}}>
+                                                            </div>
+                                                            <div class="form-label-group">
+                                                                <small class="form-text text-muted">Password:</small> 
+                                                                <input type="password" class="form-control" id="password" name="password"  required>
+                                                                    
+                                                                <small class="form-text text-muted">*Enter Password to change info/ Enter new password </small> 
+                                                            </div>
+                                                            <div class="form-label-group">
+                                                                <small class="form-text text-muted">Email: </small> 
+                                                                <input type="text" class="form-control" name="email" value={{user_information.email}}>
+                                                            </div>
+                                                            <div class="form-label-group">
+                                                                <small class="form-text text-muted">Contact Number:</small> 
+                                                                <input type="text" class="form-control" name="phoneNumber" value={{user_information.phoneNumber}}>
+                                                            </div>
+
+                                                            <div clas="form-row"> 
+                                                                    <small class="form-text text-muted">Notify me: </small> 
+                                                                </div> 
+                                                                    
+                                                                <div class="form-check form-check-inline"> 
+                                                                    {% if user_information.notify_email %} 
+                                                                    <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" checked value="True"/> 
+                                                                    <label class="form-check-label">via Email</label>   
+                                                                    {% else %}   
+                                                                    <input type="checkbox" class="form-check-input" id="notify_email" name="notify_email" value="True"/> 
+                                                                    <label class="form-check-label">via Email</label> 
+                                                                    {% endif %} 
+                                                                                        
+                                                                </div> 
+                                                                <div class="form-check form-check-inline"> 
+                                                                    {% if user_information.notify_sms %} 
+                                                                    <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" checked value="True"/> 
+                                                                    <label class="form-check-label">via SMS</label> 
+                                                                    {% else %} 
+                                                                    <input type="checkbox" class="form-check-input" id="notify_sms" name="notify_sms" value="True"/> 
+                                                                    <label class="form-check-label">via SMS</label> 
+                                                                    {% endif %} 
+                                                                </div> 
+            
+                                                                <hr class="my-4"> 
+            
+                                                                <div class="text-right"> 
+                                                                    <button type="submit" class="btn btn-info btn-sm ">Submit Details</button> 
+                                                                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button> 
+                                                                </div>
+                                                          </form>
+                 
+                                                    
+                                             
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div>
         </div> 
-       
-  </form> 
+    </header>
 </body> 
     
-  <script> 
-    $(document).ready(function() { 
-    $("#show_hide_password a").on('click', function(event) { 
-        event.preventDefault(); 
-        if($('#show_hide_password input').attr("type") == "text"){ 
-            $('#show_hide_password input').attr('type', 'password'); 
-            $('#show_hide_password i').addClass( "fa-eye-slash" ); 
-            $('#show_hide_password i').removeClass( "fa-eye" ); 
-        }else if($('#show_hide_password input').attr("type") == "password"){ 
-            $('#show_hide_password input').attr('type', 'text'); 
-            $('#show_hide_password i').removeClass( "fa-eye-slash" ); 
-            $('#show_hide_password i').addClass( "fa-eye" ); 
-        } 
-    }); 
-}); 
-</script> 
+
  
  
  
@@ -212,10 +168,15 @@
       --input-padding-y: .55rem; 
     } 
      
-    body { 
-      background: rgb(255, 255, 255); 
-      /* background: linear-gradient(to bottom,#8A2BE2,#8B008B, 	#800080);  */ 
-    } 
+
+    /* .masthead { 
+      height: 100vh; 
+      min-height: 500px; 
+      background-image: url(..\img\light-grey-terrazzo.png); 
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat; 
+}  */
  
     .card { 
         border: none; 
